@@ -1,33 +1,61 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Spectre.Console;
+using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MeetingManager
 {
     public class MeetingLauncher
-    {   
-        public void GenerateMeetingLink()
+    {
+        public static void GenerateMeetingLink()
         {
-            // Generate a unique meeting name
-            string meetingName = "JitsiMeeting" + DateTime.Now.Ticks;
-            string userName = "Safir#ä"; // Change this to any name
+            Console.Clear();
 
-            // Encode the user name to handle special characters
-            string encodedUserName = Uri.EscapeDataString(userName);
+            // Get a valid meeting name
+            string meetingName = GetValidatedInput(
+                promptMessage: Constants.promptMessageRoomID,
+                errorMessage: Constants.errorMessageRoomID) + DateTime.Now.Ticks.ToString().Substring(DateTime.Now.Ticks.ToString().Length - 5);
+
+            // Get a valid username
+            string username = GetValidatedInput(
+                promptMessage: Constants.promtMessageUser,
+                errorMessage: Constants.errorMessageUser);
+
+            // Encode the username to handle special characters
+            string encodedUserName = Uri.EscapeDataString(username);
 
             // Generate the Jitsi meeting URL with user info
             string meetingLink = $"https://meet.jit.si/{meetingName}#userInfo.displayName=\"{encodedUserName}\"";
 
-            Console.WriteLine($"📅 Meeting Created: {meetingLink}");
-
             // Open the meeting in the default web browser
             Process.Start(new ProcessStartInfo(meetingLink) { UseShellExecute = true });
 
-            Console.WriteLine("\nPress any key to exit...");
-            Console.ReadKey();
+            AnsiConsole.Markup("[bold red]Your Meeting is ready. Check your Browser![/] ");
+        }
+
+        private static string GetValidatedInput(string promptMessage, string errorMessage)
+        {
+            string input;
+            bool isValid = false;
+
+            do
+            {
+                AnsiConsole.Markup(promptMessage);
+                input = Console.ReadLine()?.Trim();
+
+                if (string.IsNullOrWhiteSpace(input) || input.Length < 3 || input.Length > 12)
+                {
+                    Console.Clear();
+                    AnsiConsole.Markup(errorMessage);
+                }
+                else
+                {
+                    Console.Clear();
+                    isValid = true;
+                }
+            }
+            while (!isValid);
+
+            return input;
         }
     }
 }
