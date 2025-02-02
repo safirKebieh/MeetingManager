@@ -14,12 +14,7 @@ namespace MeetingManager
     {
         static void Main(string[] args)
         {
-            //ali 7ywan
             SpectraStyling.MainMenu();
-<<<<<<< HEAD
-=======
-            //test safir Ongoing
->>>>>>> f19030a51e3f05d8ffbe5b6116030c6c77d022ab
         }
     }
 }
