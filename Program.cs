@@ -15,7 +15,6 @@ namespace MeetingManager
         static void Main(string[] args)
         {
             SpectraStyling.MainMenu();
-            // Just testing GitHub revert the old version how it works.
 
         }
     }
