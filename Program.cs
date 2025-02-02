@@ -15,7 +15,7 @@ namespace MeetingManager
         static void Main(string[] args)
         {
             SpectraStyling.MainMenu();
-
+            int x = 10;
         }
     }
 }
