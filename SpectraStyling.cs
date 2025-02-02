@@ -10,14 +10,6 @@ namespace MeetingManager
 {
     public class SpectraStyling
     {
-        // Create a list of choices
-        static List<string> ListMenu = new List<string>
-        {
-            "\U00002795 Start Meeting",
-            "\U00002795 Join Meeting",
-            "❌ Exit"
-        };
-
         public static void MainMenu()
         {
             Console.Title = "MeetingManager";
@@ -28,7 +20,7 @@ namespace MeetingManager
               new SelectionPrompt<string>()
                   .Title("[bold]Use arrow keys to select an action:[/]")
                   .PageSize(5)
-                  .AddChoices(ListMenu)
+                  .AddChoices(Constants.ListMenu)
                   .HighlightStyle(new Style(Color.Green))
           );
             SelectionOptions(selectedOption);
@@ -38,13 +30,14 @@ namespace MeetingManager
         {
             switch (selectedOption)
             {
-                case "\U00002795 Start Meeting":
+                case Constants.StartMeeting:
+                    // Do something
+                    Console.WriteLine("Hi");
+                    break;
+                case Constants.JoinMeeting:
                     // Do something
                     break;
-                case "\U00002795 Join Meeting":
-                    // Do something
-                    break;
-                case "❌ Exit":
+                case Constants.Exit:
                     // Do Something
                     break;
                 default:
