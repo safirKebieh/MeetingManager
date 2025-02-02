@@ -14,8 +14,8 @@ namespace MeetingManager
     {
         static void Main(string[] args)
         {
+            //ali 7ywan
             SpectraStyling.MainMenu();
-            //test
         }
     }
 }
