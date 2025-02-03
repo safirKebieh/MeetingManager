@@ -81,8 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
-    <Compile Include="DataBankConnection.cs" />
+    <Compile Include="StringResources.cs" />
     <Compile Include="MeetingLauncher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,7 +90,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SpectraStyling.cs" />
+    <Compile Include="NavigationSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

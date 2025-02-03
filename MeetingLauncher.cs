@@ -6,14 +6,14 @@ namespace MeetingManager
 {
     public class MeetingLauncher
     {
-        public static void GenerateMeetingLink(bool isCreate)
+        public static void GenerateMeetingLink(bool isCreate = false)
         {
             Console.Clear();
 
             // Get a valid meeting name
             string meetingName = GetValidatedInput(
-                promptMessage: Constants.promptMessageRoomID,
-                errorMessage: Constants.errorMessageRoomID) + DateTime.Now.Ticks.ToString().Substring(DateTime.Now.Ticks.ToString().Length - 5);
+                promptMessage: StringResources.promptMessageRoomID,
+                errorMessage: StringResources.errorMessageRoomID) + DateTime.Now.Ticks.ToString().Substring(DateTime.Now.Ticks.ToString().Length - 5);
 
             // Phase 2: TBD
             if (isCreate)
@@ -21,8 +21,8 @@ namespace MeetingManager
 
             // Get a valid username
             string username = GetValidatedInput(
-                promptMessage: Constants.promtMessageUser,
-                errorMessage: Constants.errorMessageUser);
+                promptMessage: StringResources.promtMessageUser,
+                errorMessage: StringResources.errorMessageUser);
 
             // Encode the username to handle special characters
             string encodedUserName = Uri.EscapeDataString(username);
@@ -64,7 +64,7 @@ namespace MeetingManager
 
         private static void TBDInvitePeopleStep()
         {
-            Console.WriteLine("Hallo I am step 2: ");
+            Console.WriteLine("TBD... Step 2 ");
             Console.ReadLine();
         }
     }
