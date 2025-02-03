@@ -6,7 +6,7 @@ namespace MeetingManager
 {
     public class MeetingLauncher
     {
-        public static void GenerateMeetingLink()
+        public static void GenerateMeetingLink(bool isCreate)
         {
             Console.Clear();
 
@@ -14,6 +14,10 @@ namespace MeetingManager
             string meetingName = GetValidatedInput(
                 promptMessage: Constants.promptMessageRoomID,
                 errorMessage: Constants.errorMessageRoomID) + DateTime.Now.Ticks.ToString().Substring(DateTime.Now.Ticks.ToString().Length - 5);
+
+            // Phase 2: TBD
+            if (isCreate)
+                TBDInvitePeopleStep();
 
             // Get a valid username
             string username = GetValidatedInput(
@@ -56,6 +60,12 @@ namespace MeetingManager
             while (!isValid);
 
             return input;
+        }
+
+        private static void TBDInvitePeopleStep()
+        {
+            Console.WriteLine("Hallo I am step 2: ");
+            Console.ReadLine();
         }
     }
 }

@@ -31,11 +31,10 @@ namespace MeetingManager
             switch (selectedOption)
             {
                 case Constants.StartRoom:
-                    // Do something
-                    MeetingLauncher.GenerateMeetingLink();
+                    MeetingLauncher.GenerateMeetingLink(true);
                     break;
                 case Constants.JoinRoom:
-                    // Do something
+                    MeetingLauncher.GenerateMeetingLink(false);
                     break;
                 case Constants.Exit:
                     // Do Something
