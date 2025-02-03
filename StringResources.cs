@@ -15,7 +15,7 @@ namespace MeetingManager
         {
 
         };
-        
+
         public const string CreateRoom = "\U00002795 Create Room";
         public const string JoinRoom = "\U00002795 Join Room";
         public const string Exit = "❌ Exit";
