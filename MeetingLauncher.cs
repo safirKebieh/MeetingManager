@@ -52,7 +52,7 @@ namespace MeetingManager
                 AnsiConsole.Markup(promptMessage);
                 input = Console.ReadLine()?.Trim();
 
-                if (string.IsNullOrWhiteSpace(input) || input.Length < 3 || input.Length > 12)
+                if (string.IsNullOrWhiteSpace(input) || input.Length < 3 || input.Length > 20)
                 {
                     Console.Clear();
                     AnsiConsole.Markup(errorMessage);
