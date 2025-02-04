@@ -1,5 +1,7 @@
 ﻿using Spectre.Console;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace MeetingManager
 {
@@ -12,13 +14,7 @@ namespace MeetingManager
 
             AnsiConsole.Markup(StringResources.welcomeMessage);
 
-            var selectedOption = AnsiConsole.Prompt(
-              new SelectionPrompt<string>()
-                  .PageSize(5)
-                  .AddChoices(StringResources.ListMenu)
-                  .HighlightStyle(new Style(Color.Green)));
-
-            MenuSelection(selectedOption);
+            MenuSelection(ListCreater(StringResources.ListMenu));
         }
 
         static void MenuSelection(string selectedOption)
@@ -37,6 +33,17 @@ namespace MeetingManager
                 default:
                     break;
             }
+        }
+
+        public static string ListCreater(ReadOnlyCollection<string> choicesList)
+        {
+            var selectedOption = AnsiConsole.Prompt(
+             new SelectionPrompt<string>()
+                 .PageSize(5)
+                 .AddChoices(choicesList)
+                 .HighlightStyle(new Style(Color.Green)));
+
+            return selectedOption;
         }
     }
 }
