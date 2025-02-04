@@ -14,7 +14,7 @@ namespace MeetingManager
 
         public static void SendEmail()
         {
-            AnsiConsole.Markup("Please enter the email address to send an email to:");
+            AnsiConsole.Markup("Enter the recipient's email address:");
             string recipientEmail = Console.ReadLine();
 
             try
@@ -32,7 +32,7 @@ namespace MeetingManager
                 {
                     From = new MailAddress("JetsiMeetingManager@gmail.com"), // Your email as the sender
                     Subject = "Test Email",
-                    Body = $"This is an invite to a jetsi meeting. \n This is the link {MeetingLauncher.MeetingLink}"
+                    Body = $"You are invited to a Jitsi meeting. \nHere is the link: {MeetingLauncher.MeetingLink}"
                 };
 
                 // Add the recipient's email address
@@ -46,7 +46,7 @@ namespace MeetingManager
                 // Handle exceptions (e.g., invalid email address, network issues)
                 Console.WriteLine($"Error: {ex.Message}");
             }
-            AnsiConsole.Markup("Email has been sent successfully!");
+            AnsiConsole.Markup("The email was sent successfully!\n");
         }
     }
 }
