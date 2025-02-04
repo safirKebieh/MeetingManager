@@ -30,7 +30,7 @@ namespace MeetingManager
         public const string CopyInviteLink = "➕ Copy and share the invitation link.";
 
         //General
-        public const string promptMessageRoomID = "[bold blue]Enter your Room ID::[/] ";
+        public const string promptMessageRoomID = "[bold blue]Enter your Room ID:[/] ";
         public const string errorMessageRoomID = "[bold red]Invalid Room ID! It must be between 3 and 12 characters long[/]\n";
         public const string promtMessageUser = "[bold blue]Enter your username:[/] ";
         public const string errorMessageUser = "[bold red]Invalid username! It must be between 3 and 12 characters long.[/]\n";
