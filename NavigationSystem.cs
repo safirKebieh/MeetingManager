@@ -6,7 +6,7 @@ namespace MeetingManager
     public class NavigationSystem
     {
         public static void MainMenu()
-        {
+        {  // This function must be template to call it again and again 
             Console.Title = "MeetingManager";
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
