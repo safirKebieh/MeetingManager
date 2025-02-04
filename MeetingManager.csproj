@@ -81,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InvitationManager.cs" />
     <Compile Include="StringResources.cs" />
     <Compile Include="MeetingLauncher.cs" />
     <Compile Include="Program.cs" />

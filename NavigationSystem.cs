@@ -8,16 +8,17 @@ namespace MeetingManager
     public class NavigationSystem
     {
         public static void MainMenu()
-        {  // This function must be template to call it again and again 
+        {
             Console.Title = "MeetingManager";
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            AnsiConsole.Markup(StringResources.welcomeMessage);
+            // Banner throw Spectra
+            AnsiConsole.Write(new FigletText("Meeting Manager").Color(Color.Green).Justify(Justify.Center));
 
             MenuSelection(ListCreater(StringResources.ListMenu));
         }
 
-        static void MenuSelection(string selectedOption)
+        public static void MenuSelection(string selectedOption)
         {
             switch (selectedOption)
             {
@@ -25,10 +26,19 @@ namespace MeetingManager
                     MeetingLauncher.GenerateMeetingLink(true);
                     break;
                 case StringResources.JoinRoom:
-                    MeetingLauncher.GenerateMeetingLink();
+                    MeetingLauncher.GenerateMeetingLink(false,true);
                     break;
                 case StringResources.Exit:
-                    // TBD
+                    //TBD
+                    break;
+                case StringResources.InviteByEmail:
+                    InvitationManager.SendEmail();
+                    break;
+                case StringResources.InviteFromDataBase:
+                    //TBD
+                    break;
+                case StringResources.CopyInviteLink:
+                    //TBD
                     break;
                 default:
                     break;
