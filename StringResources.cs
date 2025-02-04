@@ -12,6 +12,11 @@ namespace MeetingManager
             Exit
         });
 
+        public static readonly ReadOnlyCollection<string> ManageUsers = new ReadOnlyCollection<string>(new List<string>
+        {
+
+        });
+
         // List Menu
         public const string CreateRoom = "\U00002795 Create Room";
         public const string JoinRoom = "\U00002795 Join Room";
