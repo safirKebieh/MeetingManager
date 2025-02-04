@@ -2,6 +2,7 @@
 using System.Net.Mail;
 using System.Net;
 using Spectre.Console;
+using System.Collections.Generic;
 
 namespace MeetingManager
 {
@@ -14,39 +15,103 @@ namespace MeetingManager
 
         public static void SendEmail()
         {
-            AnsiConsole.Markup("Enter the recipient's email address:");
-            string recipientEmail = Console.ReadLine();
+            var recipientEmails = CollectEmailAddresses();
 
+            if (recipientEmails.Count == 0)
+            {
+                Console.WriteLine("No valid email addresses entered. Exiting.");
+                return;
+            }
+
+            bool success = SendEmailToRecipients(recipientEmails);
+
+            if (success)
+            {
+                AnsiConsole.WriteLine("The email was sent successfully!");
+            }
+            else
+            {
+                Console.WriteLine("Failed to send the email.");
+            }
+        }
+
+        // Collect email addresses from the user
+        private static List<string> CollectEmailAddresses()
+        {
+            var emails = new List<string>();
+            string input;
+
+            AnsiConsole.Markup("Enter email addresses (type 'done' when finished):\n");
+
+            while (true)
+            {
+                Console.Write("Email: ");
+                input = Console.ReadLine()?.Trim();
+
+                if (string.IsNullOrEmpty(input)) continue;
+                if (input.Equals("done", StringComparison.OrdinalIgnoreCase)) break;
+
+                if (IsValidEmail(input))
+                {
+                    emails.Add(input);
+                }
+                else
+                {
+                    Console.WriteLine("Invalid email format. Try again.");
+                }
+            }
+
+            return emails;
+        }
+
+        // Send the email to all collected recipients
+        private static bool SendEmailToRecipients(List<string> recipientEmails)
+        {
             try
             {
-                // Set up the SMTP client (Gmail example)
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
                 {
-                    Port = 587, // SMTP port for Gmail
-                    Credentials = new NetworkCredential("JetsiMeetingManager@gmail.com", "jclu vzim hcou hqlf"), // Use your email and app password
-                    EnableSsl = true // Enable SSL encryption
+                    Port = 587,
+                    Credentials = new NetworkCredential("JetsiMeetingManager@gmail.com", "jclu vzim hcou hqlf"),
+                    EnableSsl = true
                 };
 
-                // Create the email message
                 MailMessage mailMessage = new MailMessage
                 {
-                    From = new MailAddress("JetsiMeetingManager@gmail.com"), // Your email as the sender
+                    From = new MailAddress("JetsiMeetingManager@gmail.com"),
                     Subject = "Test Email",
                     Body = $"You are invited to a Jitsi meeting. \nHere is the link: {MeetingLauncher.MeetingLink}"
                 };
 
-                // Add the recipient's email address
-                mailMessage.To.Add(recipientEmail); // The email address entered by the user
+                foreach (var email in recipientEmails)
+                {
+                    mailMessage.To.Add(email);
+                }
 
-                // Send the email
                 smtpClient.Send(mailMessage);
+                return true;
             }
             catch (Exception ex)
             {
-                // Handle exceptions (e.g., invalid email address, network issues)
                 Console.WriteLine($"Error: {ex.Message}");
+                return false;
             }
-            AnsiConsole.Markup("The email was sent successfully!\n");
         }
+
+        // Validate the format of an email
+        private static bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
     }
 }
