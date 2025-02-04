@@ -10,6 +10,11 @@ namespace MeetingManager
             JoinRoom,
             Exit
         };
+
+        public static List<string> listManageUsers = new List<string>
+        {
+
+        };
         
         public const string CreateRoom = "\U00002795 Create Room";
         public const string JoinRoom = "\U00002795 Join Room";
