@@ -1,24 +1,24 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace MeetingManager
 {
     public class StringResources
     {
-        public static List<string> ListMenu = new List<string>
+        public static readonly ReadOnlyCollection<string> ListMenu = new ReadOnlyCollection<string>(new List<string>
         {
             CreateRoom,
             JoinRoom,
             Exit
-        };
+        });
 
-        public static List<string> listManageUsers = new List<string>
-        {
-
-        };
-
+        // List Menu
         public const string CreateRoom = "\U00002795 Create Room";
         public const string JoinRoom = "\U00002795 Join Room";
         public const string Exit = "❌ Exit";
+
+
+
         public const string promptMessageRoomID = "[bold blue]Please Enter your Room ID:[/] ";
         public const string errorMessageRoomID = "[bold red]Invalid Room ID! It must be between 3 and 12 characters.[/]\n";
         public const string promtMessageUser = "[bold blue]Please Enter username:[/] ";
