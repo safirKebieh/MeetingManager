@@ -3,6 +3,7 @@ using System.Net.Mail;
 using System.Net;
 using Spectre.Console;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace MeetingManager
 {
@@ -10,6 +11,7 @@ namespace MeetingManager
     {
         public static void InvitePeopleMenu()
         {
+
             NavigationSystem.MenuSelection(NavigationSystem.ListCreater(StringResources.ListManageInvites));
         }
 
@@ -112,6 +114,19 @@ namespace MeetingManager
             }
         }
 
+        public static void CopyMeetingLink()
+        {
+            if (string.IsNullOrEmpty(MeetingLauncher.MeetingLink))
+            {
+                Console.WriteLine("Meeting link is empty or unavailable.");
+                return;
+            }
 
+            // Copy to clipboard
+            Clipboard.SetText(MeetingLauncher.MeetingLink);
+
+            // Print the link
+            Console.WriteLine($"Meeting link is copied to your clipboard: {MeetingLauncher.MeetingLink}");
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace MeetingManager
                     //TBD
                     break;
                 case StringResources.CopyInviteLink:
-                    //TBD
+                    InvitationManager.CopyMeetingLink();
                     break;
                 default:
                     break;
