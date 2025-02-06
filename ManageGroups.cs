@@ -17,6 +17,11 @@ namespace MeetingManager
 
         }
 
+        public static void ShowGroup()
+        {
+
+        }
+
         public static void DeleteGroup()
         {
             
