@@ -20,6 +20,13 @@ namespace MeetingManager
             CopyInviteLink
         });
 
+        public static readonly ReadOnlyCollection<string> ListManageGroups = new ReadOnlyCollection<string>(new List<string>
+        {
+            AddGroup,
+            DeleteGroup,
+            ModifyGroup
+        });
+
         // List Menu
         public const string CreateRoom = "\U00002795 Create Room";
         public const string JoinRoom = "\U00002795 Join Room";
@@ -30,6 +37,11 @@ namespace MeetingManager
         public const string InviteByEmail = "➕ Send invitation via email.";
         public const string InviteFromDataBase = "➕ Send invitation from contact list.";
         public const string CopyInviteLink = "➕ Copy and share the invitation link.";
+
+        // List ManageGroups
+        public const string AddGroup = "➕ Add a new Group";
+        public const string DeleteGroup = "➕ Delete an Existing Group";
+        public const string ModifyGroup = "➕ Modify an Existing Group";
 
         //General
         public const string promptMessageRoomID = "[bold blue]Enter your Room ID:[/] ";

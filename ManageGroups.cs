@@ -10,7 +10,7 @@ namespace MeetingManager
     {
         public static void ShowListManageGroups()
         {
-
+            NavigationSystem.MenuSelection(NavigationSystem.ListCreater(StringResources.ListManageGroups));
         }
         public static void AddGroup()
         {
