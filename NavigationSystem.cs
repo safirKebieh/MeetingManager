@@ -28,6 +28,9 @@ namespace MeetingManager
                 case StringResources.JoinRoom:
                     MeetingLauncher.GenerateMeetingLink(false,true);
                     break;
+                case StringResources.ManageGroups:
+                    ManageGroups.ShowListManageGroups();
+                    break;
                 case StringResources.Exit:
                     //TBD
                     break;
