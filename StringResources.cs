@@ -9,6 +9,7 @@ namespace MeetingManager
         {
             CreateRoom,
             JoinRoom,
+            ManageGroups,
             Exit
         });
 
@@ -22,6 +23,7 @@ namespace MeetingManager
         // List Menu
         public const string CreateRoom = "\U00002795 Create Room";
         public const string JoinRoom = "\U00002795 Join Room";
+        public const string ManageGroups = "\U00002795 Manage Groups";
         public const string Exit = "❌ Exit";
 
         // List ManageInvites
