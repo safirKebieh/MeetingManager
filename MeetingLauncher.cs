@@ -1,6 +1,7 @@
 ﻿using Spectre.Console;
 using System;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace MeetingManager
 {
@@ -11,9 +12,15 @@ namespace MeetingManager
         public static void GenerateMeetingLink(bool isCreate = false, bool isJoin = false)
         {
             Console.Clear();
+            string banner = "";
+            //Show Banner
+            if (isCreate)
+                banner = "Create Meeting";
+            else
+                banner = "Join Meeting";
 
+            AnsiConsole.Write(new FigletText(banner).Color(Color.Green).Justify(Justify.Center));
             // Get a valid meeting name (Room ID)
-
             string meetingName = GetValidatedInput(
                 promptMessage: StringResources.promptMessageRoomID, // ( ) ? : ;  if join + ""  / if create + DateTime .... 
                 errorMessage: StringResources.errorMessageRoomID) + (isJoin ? "" : DateTime.Now.Ticks.ToString().Substring(DateTime.Now.Ticks.ToString().Length - 5));
