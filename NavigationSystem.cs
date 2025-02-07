@@ -32,7 +32,7 @@ namespace MeetingManager
                     AnsiConsole.Clear();
                     AnsiConsole.MarkupLine("[bold green]👋 Goodbye! Thanks for using [yellow]Meeting Manager[/]! 🚀[/]");
                     AnsiConsole.MarkupLine("[italic cyan]✨ See you next time! Have a great day! 🌟[/]");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Environment.Exit(0);
                     break;
                 case StringResources.GroupsManagement:
