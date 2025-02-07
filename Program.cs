@@ -7,7 +7,7 @@ namespace MeetingManager
         [STAThread]
         static void Main(string[] args)
         {
-            GroupAdmin.LoadGroups();
+            GroupAdmin.LoadGroups("groups.csv");
             NavigationSystem.MainMenu();
         }
     }
