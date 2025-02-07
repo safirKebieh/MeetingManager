@@ -39,6 +39,9 @@ namespace MeetingManager
                 case StringResources.GroupsManagement:
                     GroupAdmin.ShowListManageGroups();
                     break;
+                case StringResources.DeleteGroup:
+                    GroupAdmin.ShowGroups();
+                    break;
                 case StringResources.Languages:
                     //ToDo
                     break;

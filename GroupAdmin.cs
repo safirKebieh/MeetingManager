@@ -1,6 +1,7 @@
 ﻿using Spectre.Console;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -56,9 +57,11 @@ namespace MeetingManager
 
         }
 
-        public static void ShowGroup()
+        public static void ShowGroups()
         {
+            ReadOnlyCollection<string> groupNames = Groups.Select(g => g.Name).ToList().AsReadOnly();
 
+            NavigationSystem.MenuSelection(NavigationSystem.ListCreater(groupNames, "Group List"));
         }
 
         public static void DeleteGroup()
