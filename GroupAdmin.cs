@@ -61,12 +61,38 @@ namespace MeetingManager
         {
             ReadOnlyCollection<string> groupNames = Groups.Select(g => g.Name).ToList().AsReadOnly();
 
-            NavigationSystem.MenuSelection(NavigationSystem.ListCreater(groupNames, "Group List"));
+            string selectedGroupName = NavigationSystem.ListCreater(groupNames, "Groups List");
+
+            // Find the selected group
+            var selectedGroup = Groups.FirstOrDefault(g => g.Name == selectedGroupName);
+
+            DeleteGroup(selectedGroup);
         }
 
-        public static void DeleteGroup()
+        public static void DeleteGroup(Group group)
         {
-            
+            if (group != null)
+            {
+                AnsiConsole.Clear();
+                AnsiConsole.Write(new FigletText(group.Name).Color(Color.Blue).Justify(Justify.Center));
+
+                var table = new Table();
+                table.AddColumn("Name").Centered();
+                table.AddColumn("Email").Centered();
+
+                foreach (var member in group.Members)
+                {
+                    table.AddRow(member.Name, member.Email);
+                }
+
+                AnsiConsole.Write(table);
+                AnsiConsole.MarkupLine("[green]Press any key to continue...[/]");
+                Console.ReadKey();
+            }
+            else
+            {
+                AnsiConsole.MarkupLine("[red]Group not found![/]");
+            }
         }
 
         public static void ModifyGroup()
