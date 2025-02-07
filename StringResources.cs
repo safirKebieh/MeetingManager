@@ -9,7 +9,7 @@ namespace MeetingManager
         {
             CreateRoom,
             JoinRoom,
-            ManageGroups,
+            Options,
             Exit
         });
 
@@ -27,10 +27,17 @@ namespace MeetingManager
             ModifyGroup
         });
 
+        public static readonly ReadOnlyCollection<string> ListOptions = new ReadOnlyCollection<string>(new List<string>
+        {
+            GroupsManagement,
+            Languages,
+            BackToMainMenu
+        });
+
         // List Menu
         public const string CreateRoom = "\U00002795 Create Room";
         public const string JoinRoom = "\U00002795 Join Room";
-        public const string ManageGroups = "\U00002795 Manage Groups";
+        public const string Options = "\U00002795 Options";
         public const string Exit = "❌ Exit";
 
         // List ManageInvites
@@ -42,6 +49,11 @@ namespace MeetingManager
         public const string AddGroup = "➕ Add a new Group";
         public const string DeleteGroup = "➕ Delete an Existing Group";
         public const string ModifyGroup = "➕ Modify an Existing Group";
+
+        // List Options
+        public const string GroupsManagement = "\U00002795 Groups Management";
+        public const string Languages = "➕ Language Selection";
+        public const string BackToMainMenu = "➕ Back to MainMenu";
 
         //General
         public const string promptMessageRoomID = "[bold blue]Enter your Room ID:[/] ";

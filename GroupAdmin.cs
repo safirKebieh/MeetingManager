@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MeetingManager
 {
-    public class ManageGroups
+    public class GroupAdmin
     {
         public static void ShowListManageGroups()
         {
