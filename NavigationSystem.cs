@@ -32,7 +32,7 @@ namespace MeetingManager
                     SettingsManager.ShowListSettings();
                     break;
                 case StringResources.Exit:
-                    //TBD
+                    Environment.Exit(0);
                     break;
                 case StringResources.GroupsManagement:
                     GroupAdmin.ShowListManageGroups();
