@@ -23,7 +23,7 @@ namespace MeetingManager
 
             if (isCreate)
             {
-                InvitationManager.InvitePeopleMenu();
+                InvitationManager.ShowListManageInvites();
             }
 
             // Get a valid username

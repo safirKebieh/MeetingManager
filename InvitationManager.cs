@@ -9,7 +9,7 @@ namespace MeetingManager
 {
     public class InvitationManager
     {
-        public static void InvitePeopleMenu()
+        public static void ShowListManageInvites()
         {
 
             NavigationSystem.MenuSelection(NavigationSystem.ListCreater(StringResources.ListManageInvites, "Invites Manager"));

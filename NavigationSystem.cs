@@ -12,9 +12,6 @@ namespace MeetingManager
             Console.Title = "MeetingManager";
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            // Banner throw Spectra
-            
-
             MenuSelection(ListCreater(StringResources.ListMenu,"Meeting Manager"));
         }
 
@@ -51,7 +48,7 @@ namespace MeetingManager
                     InvitationManager.SendEmail();
                     break;
                 case StringResources.InviteFromDataBase:
-                    //TBD
+                    //ToDo
                     break;
                 case StringResources.CopyInviteLink:
                     InvitationManager.CopyMeetingLink();
