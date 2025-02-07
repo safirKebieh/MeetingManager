@@ -12,7 +12,7 @@ namespace MeetingManager
             Console.Title = "MeetingManager";
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            MenuSelection(ListCreater(StringResources.ListMenu,"Meeting Manager"));
+            MenuSelection(ListCreater(StringResources.ListMenu,"Main Menu"));
         }
 
         public static void MenuSelection(string selectedOption)
@@ -26,6 +26,7 @@ namespace MeetingManager
                     MeetingLauncher.GenerateMeetingLink(false, true);
                     break;
                 case StringResources.Settings:
+                case StringResources.BackToSettings:
                     SettingsManager.ShowListSettings();
                     break;
                 case StringResources.Exit:
@@ -42,7 +43,7 @@ namespace MeetingManager
                     //ToDo
                     break;
                 case StringResources.BackToMainMenu:
-                    MenuSelection(ListCreater(StringResources.ListMenu, "Meeting Manager"));
+                    MenuSelection(ListCreater(StringResources.ListMenu, "Main Menu"));
                     break;
                 case StringResources.InviteByEmail:
                     InvitationManager.SendEmail();

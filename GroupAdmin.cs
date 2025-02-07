@@ -13,7 +13,7 @@ namespace MeetingManager
 
         public static void ShowListManageGroups()
         {
-            NavigationSystem.MenuSelection(NavigationSystem.ListCreater(StringResources.ListManageGroups, "Manage Groups"));
+            NavigationSystem.MenuSelection(NavigationSystem.ListCreater(StringResources.ListManageGroups, "Groups Management"));
         }
         public static void LoadGroups(string filePath)
         {

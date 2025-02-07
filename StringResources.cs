@@ -25,7 +25,8 @@ namespace MeetingManager
         {
             AddGroup,
             DeleteGroup,
-            ModifyGroup
+            ModifyGroup,
+            BackToSettings
         });
 
         public static readonly ReadOnlyCollection<string> ListSettings = new ReadOnlyCollection<string>(new List<string>
@@ -50,6 +51,7 @@ namespace MeetingManager
         public const string AddGroup = "➕ Add a new Group";
         public const string DeleteGroup = "➕ Delete an Existing Group";
         public const string ModifyGroup = "➕ Modify an Existing Group";
+        public const string BackToSettings = "➕ Back to Settings";
 
         // List Options
         public const string GroupsManagement = "\U00002795 Groups Management";
