@@ -4,6 +4,7 @@ using System.Net;
 using Spectre.Console;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace MeetingManager
 {
@@ -50,7 +51,13 @@ namespace MeetingManager
                 Console.Write("Email: ");
                 input = Console.ReadLine()?.Trim();
 
-                if (string.IsNullOrEmpty(input)) continue;
+                // Handle empty input
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    Console.WriteLine("Email address cannot be empty. Please enter a valid email.");
+                    continue;
+                }
+
                 if (input.Equals("done", StringComparison.OrdinalIgnoreCase)) break;
 
                 if (IsValidEmail(input))
@@ -103,15 +110,8 @@ namespace MeetingManager
         // Validate the format of an email
         private static bool IsValidEmail(string email)
         {
-            try
-            {
-                var addr = new MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            return !string.IsNullOrWhiteSpace(email) && Regex.IsMatch(email, pattern);
         }
 
         public static void CopyMeetingLink()
