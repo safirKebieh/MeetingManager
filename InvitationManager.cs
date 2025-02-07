@@ -12,7 +12,7 @@ namespace MeetingManager
         public static void InvitePeopleMenu()
         {
 
-            NavigationSystem.MenuSelection(NavigationSystem.ListCreater(StringResources.ListManageInvites));
+            NavigationSystem.MenuSelection(NavigationSystem.ListCreater(StringResources.ListManageInvites, "Invites Manager"));
         }
 
         public static void SendEmail()

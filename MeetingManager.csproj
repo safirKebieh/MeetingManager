@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="InvitationManager.cs" />
     <Compile Include="GroupAdmin.cs" />
+    <Compile Include="SettingsManager.cs" />
     <Compile Include="StringResources.cs" />
     <Compile Include="MeetingLauncher.cs" />
     <Compile Include="Recipient.cs" />

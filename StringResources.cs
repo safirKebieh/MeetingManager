@@ -9,7 +9,7 @@ namespace MeetingManager
         {
             CreateRoom,
             JoinRoom,
-            Options,
+            Settings,
             Exit
         });
 
@@ -17,7 +17,8 @@ namespace MeetingManager
         {
             InviteByEmail,
             InviteFromDataBase,
-            CopyInviteLink
+            CopyInviteLink,
+            BackToMainMenu
         });
 
         public static readonly ReadOnlyCollection<string> ListManageGroups = new ReadOnlyCollection<string>(new List<string>
@@ -27,7 +28,7 @@ namespace MeetingManager
             ModifyGroup
         });
 
-        public static readonly ReadOnlyCollection<string> ListOptions = new ReadOnlyCollection<string>(new List<string>
+        public static readonly ReadOnlyCollection<string> ListSettings = new ReadOnlyCollection<string>(new List<string>
         {
             GroupsManagement,
             Languages,
@@ -37,7 +38,7 @@ namespace MeetingManager
         // List Menu
         public const string CreateRoom = "\U00002795 Create Room";
         public const string JoinRoom = "\U00002795 Join Room";
-        public const string Options = "\U00002795 Options";
+        public const string Settings = "\U00002795 Settings";
         public const string Exit = "❌ Exit";
 
         // List ManageInvites

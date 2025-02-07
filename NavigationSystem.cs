@@ -13,9 +13,9 @@ namespace MeetingManager
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
             // Banner throw Spectra
-            AnsiConsole.Write(new FigletText("Meeting Manager").Color(Color.Green).Justify(Justify.Center));
+            
 
-            MenuSelection(ListCreater(StringResources.ListMenu));
+            MenuSelection(ListCreater(StringResources.ListMenu,"Meeting Manager"));
         }
 
         public static void MenuSelection(string selectedOption)
@@ -26,13 +26,22 @@ namespace MeetingManager
                     MeetingLauncher.GenerateMeetingLink(true);
                     break;
                 case StringResources.JoinRoom:
-                    MeetingLauncher.GenerateMeetingLink(false,true);
+                    MeetingLauncher.GenerateMeetingLink(false, true);
+                    break;
+                case StringResources.Settings:
+                    SettingsManager.ShowListSettings();
+                    break;
+                case StringResources.Exit:
+                    //TBD
                     break;
                 case StringResources.GroupsManagement:
                     GroupAdmin.ShowListManageGroups();
                     break;
-                case StringResources.Exit:
-                    //TBD
+                case StringResources.Languages:
+                    //ToDo
+                    break;
+                case StringResources.BackToMainMenu:
+                    MenuSelection(ListCreater(StringResources.ListMenu, "Meeting Manager"));
                     break;
                 case StringResources.InviteByEmail:
                     InvitationManager.SendEmail();
@@ -48,10 +57,14 @@ namespace MeetingManager
             }
         }
 
-        public static string ListCreater(ReadOnlyCollection<string> choicesList)
+        public static string ListCreater(ReadOnlyCollection<string> choicesList, string banner)
         {
+            AnsiConsole.Clear();
+            AnsiConsole.Write(new FigletText(banner).Color(Color.Green).Justify(Justify.Center));
+
             var selectedOption = AnsiConsole.Prompt(
              new SelectionPrompt<string>()
+                 .Title("")
                  .PageSize(5)
                  .AddChoices(choicesList)
                  .HighlightStyle(new Style(Color.Green)));
