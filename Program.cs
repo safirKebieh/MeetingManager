@@ -7,6 +7,7 @@ namespace MeetingManager
         [STAThread]
         static void Main(string[] args)
         {
+            GroupAdmin.LoadGroups();
             NavigationSystem.MainMenu();
         }
     }
