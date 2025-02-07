@@ -47,7 +47,7 @@ namespace MeetingManager
             // Open the meeting in the default web browser
             Process.Start(new ProcessStartInfo(MeetingLink) { UseShellExecute = true });
 
-            AnsiConsole.Markup("[bold red]Your meeting is ready. Please check your browser.[/] ");
+            AnsiConsole.Markup("[bold red]Your meeting is ready. Please check your browser.[/]\n ");
         }
 
         private static string GetValidatedInput(string promptMessage, string errorMessage)
