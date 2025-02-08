@@ -36,6 +36,13 @@ namespace MeetingManager
             BackToMainMenu
         });
 
+        public static readonly ReadOnlyCollection<string> ListLanguages = new ReadOnlyCollection<string>(new List<string>
+        {
+            lanEnglish,
+            lanGerman,
+            BackToSettings
+        });
+
         // List Menu
         public const string CreateRoom = "\U00002795 Create Room";
         public const string JoinRoom = "\U00002795 Join Room";
@@ -57,6 +64,10 @@ namespace MeetingManager
         public const string GroupsManagement = "\U00002795 Groups Management";
         public const string Languages = "➕ Language Selection";
         public const string BackToMainMenu = "➕ Back to MainMenu";
+
+        // List Languages
+        public const string lanEnglish = "➕ English (EN)";
+        public const string lanGerman = "➕ German (DE)";
 
         //General
         public const string promptMessageRoomID = "[bold blue]Enter your Room ID:[/] ";

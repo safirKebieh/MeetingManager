@@ -1,9 +1,9 @@
 groupname,name,email
-family, safir kebieh,safeer-k@hotmail.com
-family, safir2,safirkebieh1986@gmail.com
-friends, zaza, zaza.furtion@gmail.com
-friends, zaza2, example@gmail.com
-friends, Rami Rihawi, examples@hotmail.com
+family, person1,example@gmail.com
+family, person2,example2@hotmail.com
+friends,person3,example3@gmail.com
+friends,Person4, example4@gmail.com
+friends,Person5, example5@hotmail.com
 work,a,a
 work,b,b
 work,c,c

@@ -43,7 +43,7 @@ namespace MeetingManager
                     GroupAdmin.ShowGroups();
                     break;
                 case StringResources.Languages:
-                    //ToDo
+                    MenuSelection(ListCreater(StringResources.ListLanguages, "Languages"));
                     break;
                 case StringResources.BackToMainMenu:
                     MenuSelection(ListCreater(StringResources.ListMenu, "Main Menu"));
