@@ -66,33 +66,53 @@ namespace MeetingManager
             // Find the selected group
             var selectedGroup = Groups.FirstOrDefault(g => g.Name == selectedGroupName);
 
-            DeleteGroup(selectedGroup);
+            if (selectedGroup != null)
+            {
+                AnsiConsole.Clear();
+                AnsiConsole.Write(new FigletText(selectedGroup.Name).Color(Color.Blue).Justify(Justify.Center));
+
+                var table = new Table();
+                table.AddColumn("Name").Centered();
+                table.AddColumn("Email").Centered();
+
+                foreach (var member in selectedGroup.Members)
+                {
+                    table.AddRow(member.Name, member.Email);
+                }
+                AnsiConsole.Write(table);
+
+                DeleteGroup(selectedGroup);
+            }
         }
 
         public static void DeleteGroup(Group group)
         {
             if (group != null)
             {
-                AnsiConsole.Clear();
-                AnsiConsole.Write(new FigletText(group.Name).Color(Color.Blue).Justify(Justify.Center));
+                // Ask for confirmation using ConfirmationPrompt
+                bool confirmDelete = AnsiConsole.Prompt(
+                    new ConfirmationPrompt($"[red]Are you sure you want to delete the group '{group.Name}'?[/]")
+                        .ShowChoices(true)
+                );
 
-                var table = new Table();
-                table.AddColumn("Name").Centered();
-                table.AddColumn("Email").Centered();
-
-                foreach (var member in group.Members)
+                if (confirmDelete)
                 {
-                    table.AddRow(member.Name, member.Email);
+                    Groups.Remove(group);
+                    AnsiConsole.MarkupLine($"[green]Group '{group.Name}' has been deleted successfully![/]");
                 }
-
-                AnsiConsole.Write(table);
+                else
+                {
+                    AnsiConsole.MarkupLine("[yellow]Operation cancelled![/]");
+                }
                 AnsiConsole.MarkupLine("[green]Press any key to continue...[/]");
                 Console.ReadKey();
+                ShowGroups();
             }
             else
             {
                 AnsiConsole.MarkupLine("[red]Group not found![/]");
             }
+
         }
 
         public static void ModifyGroup()
