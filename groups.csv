@@ -1,0 +1,13 @@
+groupname,name,email
+family, person1,example@gmail.com
+family, person2,example2@hotmail.com
+friends,person3,example3@gmail.com
+friends,Person4, example4@gmail.com
+friends,Person5, example5@hotmail.com
+work,a,a
+work,b,b
+work,c,c
+work,d,d
+Class1,a,a
+Class1,b,b
+Class2,c,c

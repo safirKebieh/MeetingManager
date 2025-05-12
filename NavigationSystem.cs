@@ -1,7 +1,7 @@
 ﻿using Spectre.Console;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading;
 
 namespace MeetingManager
 {
@@ -12,10 +12,7 @@ namespace MeetingManager
             Console.Title = "MeetingManager";
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            // Banner throw Spectra
-            AnsiConsole.Write(new FigletText("Meeting Manager").Color(Color.Green).Justify(Justify.Center));
-
-            MenuSelection(ListCreater(StringResources.ListMenu));
+            MenuSelection(ListCreater(StringResources.ListMenu,"Main Menu"));
         }
 
         public static void MenuSelection(string selectedOption)
@@ -26,16 +23,36 @@ namespace MeetingManager
                     MeetingLauncher.GenerateMeetingLink(true);
                     break;
                 case StringResources.JoinRoom:
-                    MeetingLauncher.GenerateMeetingLink(false,true);
+                    MeetingLauncher.GenerateMeetingLink(false, true);
+                    break;
+                case StringResources.Settings:
+                case StringResources.BackToSettings:
+                    SettingsManager.ShowListSettings();
                     break;
                 case StringResources.Exit:
-                    //TBD
+                    AnsiConsole.Clear();
+                    AnsiConsole.MarkupLine("[bold green]👋 Goodbye! Thanks for using [yellow]Meeting Manager[/]! 🚀[/]");
+                    AnsiConsole.MarkupLine("[italic cyan]✨ See you next time! Have a great day! 🌟[/]");
+                    Thread.Sleep(3000);
+                    Environment.Exit(0);
+                    break;
+                case StringResources.GroupsManagement:
+                    GroupAdmin.ShowListManageGroups();
+                    break;
+                case StringResources.DeleteGroup:
+                    GroupAdmin.ShowGroups();
+                    break;
+                case StringResources.Languages:
+                    MenuSelection(ListCreater(StringResources.ListLanguages, "Languages"));
+                    break;
+                case StringResources.BackToMainMenu:
+                    MenuSelection(ListCreater(StringResources.ListMenu, "Main Menu"));
                     break;
                 case StringResources.InviteByEmail:
                     InvitationManager.SendEmail();
                     break;
                 case StringResources.InviteFromDataBase:
-                    //TBD
+                    //ToDo
                     break;
                 case StringResources.CopyInviteLink:
                     InvitationManager.CopyMeetingLink();
@@ -45,10 +62,14 @@ namespace MeetingManager
             }
         }
 
-        public static string ListCreater(ReadOnlyCollection<string> choicesList)
+        public static string ListCreater(ReadOnlyCollection<string> choicesList, string banner)
         {
+            AnsiConsole.Clear();
+            AnsiConsole.Write(new FigletText(banner).Color(Color.Green).Justify(Justify.Center));
+
             var selectedOption = AnsiConsole.Prompt(
              new SelectionPrompt<string>()
+                 .Title("")
                  .PageSize(5)
                  .AddChoices(choicesList)
                  .HighlightStyle(new Style(Color.Green)));

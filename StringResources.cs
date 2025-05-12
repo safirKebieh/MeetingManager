@@ -9,6 +9,7 @@ namespace MeetingManager
         {
             CreateRoom,
             JoinRoom,
+            Settings,
             Exit
         });
 
@@ -16,18 +17,57 @@ namespace MeetingManager
         {
             InviteByEmail,
             InviteFromDataBase,
-            CopyInviteLink
+            CopyInviteLink,
+            BackToMainMenu
+        });
+
+        public static readonly ReadOnlyCollection<string> ListManageGroups = new ReadOnlyCollection<string>(new List<string>
+        {
+            AddGroup,
+            DeleteGroup,
+            ModifyGroup,
+            BackToSettings
+        });
+
+        public static readonly ReadOnlyCollection<string> ListSettings = new ReadOnlyCollection<string>(new List<string>
+        {
+            GroupsManagement,
+            Languages,
+            BackToMainMenu
+        });
+
+        public static readonly ReadOnlyCollection<string> ListLanguages = new ReadOnlyCollection<string>(new List<string>
+        {
+            lanEnglish,
+            lanGerman,
+            BackToSettings
         });
 
         // List Menu
         public const string CreateRoom = "\U00002795 Create Room";
         public const string JoinRoom = "\U00002795 Join Room";
+        public const string Settings = "\U00002795 Settings";
         public const string Exit = "❌ Exit";
 
         // List ManageInvites
         public const string InviteByEmail = "➕ Send invitation via email.";
         public const string InviteFromDataBase = "➕ Send invitation from contact list.";
         public const string CopyInviteLink = "➕ Copy and share the invitation link.";
+
+        // List ManageGroups
+        public const string AddGroup = "➕ Add a new Group";
+        public const string DeleteGroup = "➕ Delete an Existing Group";
+        public const string ModifyGroup = "➕ Modify an Existing Group";
+        public const string BackToSettings = "➕ Back to Settings";
+
+        // List Options
+        public const string GroupsManagement = "\U00002795 Groups Management";
+        public const string Languages = "➕ Language Selection";
+        public const string BackToMainMenu = "➕ Back to MainMenu";
+
+        // List Languages
+        public const string lanEnglish = "➕ English (EN)";
+        public const string lanGerman = "➕ German (DE)";
 
         //General
         public const string promptMessageRoomID = "[bold blue]Enter your Room ID:[/] ";
