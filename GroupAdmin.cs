@@ -30,7 +30,7 @@ namespace MeetingManager
 
             Dictionary<string, Group> groupDictionary = new Dictionary<string, Group>();
 
-            foreach (var line in File.ReadLines(filePath).Skip(1)) // Skip header
+            foreach (string line in File.ReadLines(filePath).Skip(1)) // Skip header
             {
                 var parts = line.Split(',');
                 if (parts.Length != 3) continue; // Skip invalid lines
